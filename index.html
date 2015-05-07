@@ -1,0 +1,27 @@
+---
+layout: default
+title: Dev Note
+---
+<!-- Content
+    ================================================== -->
+  <div class="top-strip"></div>
+  <div class="content">
+    <main class="container">
+      <div class="row-fluid">
+        <section class="content">
+          <h1>Dev Note</h1>
+        </section>
+        <ul class="entries">
+        {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url }}">
+                      <span>{{ post.date | date: "%d %B %Y" }}</span>
+                <h3>{{ post.title }}</h3>
+                      <div>{{ post.content |truncatehtml | truncatewords: 30 }}</div>
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </main>
+  </div>
