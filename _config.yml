@@ -8,14 +8,14 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : SUDOREQUIRED
-tagline: Site Tagline
+title : Dev Note
+tagline: 30 seconds per post
 author :
   name : Joseph Buchma
   email : josephbuchma@gmail.com
   github : josephbuchma
   twitter : josephbuchma
-  feedburner : sudorequired
+  feedburner : devnote
 
 
 # The production_url is only used when full-domain names are needed
