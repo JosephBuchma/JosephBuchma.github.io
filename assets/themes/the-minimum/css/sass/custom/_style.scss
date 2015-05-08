@@ -62,6 +62,12 @@ main.container, main.content > .container{
 // 2. Header Section
 // --------------------------------------------------
 
+header {
+    &.main-logo {
+        text-align: center;
+    }
+}
+
 .content{
     background-color: $white;
 
