@@ -37,6 +37,4 @@ one of ready to use plugin packs (which are finally just .vimrc). I used [dotvim
 <script src="https://gist.github.com/JosephBuchma/650d0dd87b553ca2c8a0.js"></script>
 
 ### My tmux.conf
-_todo:_ update bash script to include tmux config
-
 <script src="https://gist.github.com/JosephBuchma/72709f7b22655f7ce339.js"></script>
