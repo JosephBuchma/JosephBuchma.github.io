@@ -28,6 +28,8 @@ one of ready to use plugin packs (which are finally just .vimrc). I used [dotvim
       + press `?` inside nerdtree, helpful
       + select visually and press `Ctrl-n` / `Ctrl-p` for multiple cursors
       + surround: `cs"'`-change; `ds"`-delete; `ysiw"`-wrap. [See all](https://github.com/tpope/vim-surround#surroundvim)
+      + search in files: `:Ag [options] {pattern} [{directory}]`; [shortcuts
+        for search results](https://github.com/rking/ag.vim#keyboard-shortcuts)
       + look for all available features of [dotvim](https://github.com/astrails/dotvim)
 
 ### Let's bash

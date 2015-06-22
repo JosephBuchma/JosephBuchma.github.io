@@ -10,6 +10,14 @@ tags: ["shell", "zsh", "bash", "workflow", "devtools"]
 _This is continuation of my 'best workflow exploration'._
 
 Work in progress...
+.
+.
+.
+.
+.
+.
+.
+.
 
 ### Let's .sh
 Before running this script `sudo apt-get install zsh`.
