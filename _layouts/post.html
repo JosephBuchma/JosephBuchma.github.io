@@ -11,6 +11,15 @@ layout: default
 	{% else %}
 		<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
 	{% endif %}
+  {% if page.tags %}
+  <ul class="tags">
+    {% for tag in page.tags %}
+      <li>
+        <a href="/tag/{{ tag }}">{{ tag }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
 
 	<div class="post-content">{{ content }}</div>
 

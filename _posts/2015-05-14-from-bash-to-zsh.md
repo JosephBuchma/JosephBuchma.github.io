@@ -6,21 +6,17 @@ category: "devtools"
 tags: ["shell", "zsh", "bash", "workflow", "devtools"]
 ---
 
-_This is continuation of my 'best workflow exploration'._
+This script is modified script from previous post. In addition to zsh which you
+install manually it also installs
+[zprezto](https://github.com/sorin-ionescu/prezto)
 
-Work in progress...
-.
-.
-.
-.
-.
-.
-.
-.
+After installation you should manually configure gnome-terminal to use zsh
+instead of bash.
 
 ### Let's .sh
-Before running this script `sudo apt-get install zsh`.
-After succesfull installation run `zsh`, and you're ready to execure this shell script.
+You should run this script from zsh.
+
+Shortcut: `sudo apt-get install zsh && git clone https://gist.github.com/69eb0c387d0b8c86cd3a.git /tmp/_vtzs && cd /tmp_vtzs && sudo zsh zsh_vim_tmux_setup.sh`
 
 <script src="https://gist.github.com/JosephBuchma/69eb0c387d0b8c86cd3a.js"></script>
 

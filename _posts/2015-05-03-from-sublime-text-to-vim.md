@@ -4,7 +4,11 @@ title: "From Sublime Text to Vim"
 description: "Migration from Sublime Text and regular Terminal
 to Vim and Tmux"
 category: devtools
-tags: [vim, tmux, editors, workflow, devtools]
+tags:
+  - vim
+  - tmux
+  - editors
+  - devtools
 ---
 
 _This post is beginning of my 'best workflow exploration'. During this journey I'll write shell script for quick bootstrap of this perfect workspace on fresh Ubuntu machine._

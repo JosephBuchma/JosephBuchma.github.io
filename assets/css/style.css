@@ -32,7 +32,7 @@ table {
 
 /*** Basics ***/
 body {
-	font-family: Verdana, serif;
+  font-family: 'Roboto Condensed', sans-serif;
 	font-size: 16px;
 	line-height: 1.7;
 }
@@ -57,7 +57,12 @@ sup { vertical-align: super; font-size: 0.85em; }
 sub { vertical-align: sub; font-size: 0.85em; }
 
 code {
-    font: 0.85em Monaco, Courier, Monospace;
+  font: 0.85em Monaco, Courier, Monospace;
+  background: rgba(0,0,0, 0.07);
+}
+
+.highlight code {
+  background: none;
 }
 
 blockquote {
@@ -155,9 +160,30 @@ h3 {
 
 #sidebar a {
 	border: none;
-	font-family: "Helvetica Neue", "Helvetica", serif;
+  font-family: 'Roboto Condensed', sans-serif;
 	font-size: 1.2em;
 	padding: 2px 4px;
+}
+
+#tagcloud {
+	position: absolute;
+	text-align: left;
+	width: 160px;
+	top: 0;
+  right: -200px;
+  padding-left: 10px;
+  border-left: 1px solid #D6CEB6;
+  opacity: 0.4;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#tagcloud ul.tags {
+  margin-top: -10px;
+}
+
+#tagcloud:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
 }
 
 
@@ -210,6 +236,50 @@ img.center {
     margin-bottom: 0px !important;
 }
 
+ul.tags {
+  padding: 0;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
+ul.tags li {
+  color: white;
+  display: inline;
+  background: rgba(203, 75, 22, 0.86);
+  border-radius: 4px;
+  padding: 2px 4px 2px 7px;
+  margin-right: 2px;
+}
+
+ul.tags li.highlighted {
+  background: rgba(57, 168, 157, 0.83);
+}
+
+ul.tags li.highlighted:hover {
+  background: rgba(57, 168, 157, 1);
+}
+
+ul.tags.list li {
+  display: inline-block;
+  margin: 0px;
+  padding: 2px;
+  padding-top: 0px;
+  line-height: 20px;
+  height: 18px;
+}
+
+ul.tags li:hover {
+  background: rgba(203, 75, 22, 1);
+}
+
+ul.tags li a {
+  color: white;
+}
+
+ul.tags li a:hover {
+  background: none;
+}
+
 
 
 /*** Pagination ***/
@@ -250,6 +320,10 @@ img.center {
 		display: block;
 		margin-bottom: 15px;
 	}
+
+  #tagcloud {
+    display: none;
+  }
 
 }
 

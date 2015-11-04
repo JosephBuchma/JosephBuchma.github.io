@@ -71,7 +71,7 @@ blockquote {
 .gist .gist-file .gist-meta {color:#475B62 !important;background-color:#F9F1DB !important;}
 .gist .gist-file .gist-meta a {color: #EAE3CB !important;}
 .gist .gist-file .gist-meta a {color: #819090 !important;}
-.gist .gist-file .gist-data {border-bottom:1px solid #CCCCCC !important;background-color:#0A2933 !important;}
+.gist .gist-file .gist-data {border-bottom:1px solid #CCCCCC !important;background-color:#F9F1DB !important; border-radius:3px;}
 .gist .gist-file .gist-data pre {font-family:'Anonymous Pro','Droid Sans Mono','DejaVu Sans Mono',Monaco,Consolas,'Lucida Console',Courier,monospace !important;}
 .gist .gist-file .gist-data .gist-line-numbers {color:#475B62 !important;border-right:1px solid #042029 !important;background-color:#042029 !important;}
 .highlight {background:#F9F1DB !important}

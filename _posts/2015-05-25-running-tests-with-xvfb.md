@@ -3,7 +3,9 @@ layout: post
 title: "Running tests with Xvfb"
 description: "My experience with Xvfb"
 category: "dev"
-tags: ["ruby", "rails", "testing", "xvfb"]
+tags:
+ - rspec
+ - xvfb
 ---
 
 Xvfb (short for X virtual framebuffer) is an in-memory display server for
