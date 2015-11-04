@@ -5,7 +5,6 @@ description: "My experience with Xvfb"
 category: "dev"
 tags: ["ruby", "rails", "testing", "xvfb"]
 ---
-{% include JB/setup %}
 
 Xvfb (short for X virtual framebuffer) is an in-memory display server for
 UNIX-like operating system (e.g., Linux). It enables you to run graphical

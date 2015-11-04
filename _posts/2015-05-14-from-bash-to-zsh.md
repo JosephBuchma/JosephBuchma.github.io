@@ -5,7 +5,6 @@ description: "Migration from bash to zsh"
 category: "devtools"
 tags: ["shell", "zsh", "bash", "workflow", "devtools"]
 ---
-{% include JB/setup %}
 
 _This is continuation of my 'best workflow exploration'._
 
