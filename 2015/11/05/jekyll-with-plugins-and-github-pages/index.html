@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Posts Tagged &ldquo;zsh&rdquo;</title>
+  <title>Jekyll with plugins and Github Pages</title>
   <meta name="viewport" content="width=device-width">
 
   <!--[if lt IE 9]>
@@ -44,82 +44,49 @@
 
 
     <div id="content">
-      <h2 class="post_title">Posts Tagged &ldquo;zsh&rdquo;</h2>
+      <article class="post">
+
+	
+		<h1><a href="/2015/11/05/jekyll-with-plugins-and-github-pages/">Jekyll with plugins and Github Pages</a></h1>
+	
+  
+  <ul class="tags">
+    
+      <li>
+        <a href="/tag/jekyll">jekyll</a>
+      </li>
+    
+      <li>
+        <a href="/tag/github">github</a>
+      </li>
+    
+      <li>
+        <a href="/tag/githubpages">githubpages</a>
+      </li>
+    
+    </ul>
+  
+
+	<div class="post-content"><p>Github skips running scripts in <strong>_plugins</strong> directory due to security
+considreations. But you can push pre-built site into master branch:</p>
+
 <ul>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-		<article class="post">
-			
-				<h1><a href="/2015/05/14/from-bash-to-zsh/">From bash to zsh</a></h1>
-			
-      
-      <ul class="tags">
-        
-          <li >
-            <a href="/tag/shell">shell</a>
-          </li>
-        
-          <li  class="highlighted">
-            <a href="/tag/zsh">zsh</a>
-          </li>
-        
-          <li >
-            <a href="/tag/bash">bash</a>
-          </li>
-        
-          <li >
-            <a href="/tag/workflow">workflow</a>
-          </li>
-        
-          <li >
-            <a href="/tag/devtools">devtools</a>
-          </li>
-        
-        </ul>
-      
-		</article>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <li>make <strong>src</strong> branch</li>
+  <li>remove everything from <code>destination</code> directory (_site)</li>
+  <li>clone this repository again into <code>destination</code> directory. Now you have <strong>master</strong> branch in your <code>destination</code> directory.</li>
+  <li>clear <code>destination</code> directory again and build your jekyll site.</li>
+  <li>go to <code>destination</code> directory, commit and push changes. Now your site is
+ready.</li>
 </ul>
 
+<p><em>Your <code>destination</code> folder should be gitignored</em></p>
+
+<p>Do not forget to push your changes in <strong>src</strong> branch</p>
+</div>
+
+	<p class="meta">Posted on <span class="postdate">Nov 05, 2015</span></p>
+
+</article>
     </div>
 
 
