@@ -1,30 +1,194 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title></title>
+    <description>Dev blog</description>
+    <link>http://josephbuchma.github.io/</link>
+    <atom:link href="http://josephbuchma.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 05 Nov 2015 10:06:05 +0200</pubDate>
+    <lastBuildDate>Thu, 05 Nov 2015 10:06:05 +0200</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Go</title>
+        <description>&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Libs &amp;amp; Frameworks:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gin-gonic/gin&quot;&gt;Gin&lt;/a&gt; - performant lightweight web framework&lt;/li&gt;
+  &lt;li&gt;net/context&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Go dev tools&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/moovweb/gvm&quot;&gt;GVM&lt;/a&gt; - Go version management&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Articles&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://peter.bourgon.org/go-in-production&quot;&gt;Go in production: best practices&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://12factor.net&quot;&gt;The Twelve Factor App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 19 Jul 2015 00:00:00 +0300</pubDate>
+        <link>http://josephbuchma.github.io/2015/07/19/golang/</link>
+        <guid isPermaLink="true">http://josephbuchma.github.io/2015/07/19/golang/</guid>
+        
+        <category>golang</category>
+        
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Running tests with Xvfb</title>
+        <description>&lt;p&gt;Xvfb (short for X virtual framebuffer) is an in-memory display server for
+UNIX-like operating system (e.g., Linux). It enables you to run graphical
+applications without a display (e.g., browser tests on a CI server) while also
+having the ability to take screenshots.&lt;/p&gt;
+
+&lt;h3 id=&quot;installation-on-ubuntu&quot;&gt;Installation on Ubuntu&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install xvfb
+
+&lt;span class=&quot;c&quot;&gt;#also make sure you have firefox installed&lt;/span&gt;
+sudo apt-get install firefox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;run-ror-project-tests-with-xvfb&quot;&gt;Run RoR project tests with Xvfb&lt;/h3&gt;
+&lt;p&gt;Go to your project folder and run&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;xvfb-run bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rspec&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;gotchas&quot;&gt;Gotchas&lt;/h2&gt;
+&lt;p&gt;Sometimes it behaves differently from regular selenium local testing. For
+example it will not be able to click on ‘overlapped’ element, and test will fail,
+while the same test passes wen running without Xvfb.&lt;/p&gt;
+
+&lt;h3 id=&quot;links&quot;&gt;Links&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml&quot;&gt;Xvfb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://elementalselenium.com/tips/38-headless&quot;&gt;How To Run Your Tests Headlessly with
+Xvfb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 25 May 2015 00:00:00 +0300</pubDate>
+        <link>http://josephbuchma.github.io/2015/05/25/running-tests-with-xvfb/</link>
+        <guid isPermaLink="true">http://josephbuchma.github.io/2015/05/25/running-tests-with-xvfb/</guid>
+        
+        <category>rspec</category>
+        
+        <category>xvfb</category>
+        
+        
+        <category>dev</category>
+        
+      </item>
+    
+      <item>
+        <title>From bash to zsh</title>
+        <description>&lt;p&gt;This script is modified script from previous post. In addition to zsh which you
+install manually it also installs
+&lt;a href=&quot;https://github.com/sorin-ionescu/prezto&quot;&gt;zprezto&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After installation you should manually configure gnome-terminal to use zsh
+instead of bash.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-sh&quot;&gt;Let’s .sh&lt;/h3&gt;
+&lt;p&gt;You should run this script from zsh.&lt;/p&gt;
+
+&lt;p&gt;Shortcut: &lt;code&gt;sudo apt-get install zsh &amp;amp;&amp;amp; git clone https://gist.github.com/69eb0c387d0b8c86cd3a.git /tmp/_vtzs &amp;amp;&amp;amp; cd /tmp_vtzs &amp;amp;&amp;amp; sudo zsh zsh_vim_tmux_setup.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/JosephBuchma/69eb0c387d0b8c86cd3a.js&quot;&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;all-best-workflow-exploration-posts&quot;&gt;All “best workflow exploration” posts&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/devtools/2015/05/03/from-sublime-text-to-vim/&quot;&gt;From Sublime Text to Vim&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;From bash to zsh&lt;/a&gt; &amp;lt;- &lt;em&gt;you are here&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Thu, 14 May 2015 00:00:00 +0300</pubDate>
+        <link>http://josephbuchma.github.io/2015/05/14/from-bash-to-zsh/</link>
+        <guid isPermaLink="true">http://josephbuchma.github.io/2015/05/14/from-bash-to-zsh/</guid>
+        
+        <category>shell</category>
+        
+        <category>zsh</category>
+        
+        <category>bash</category>
+        
+        <category>workflow</category>
+        
+        <category>devtools</category>
+        
+        
+        <category>devtools</category>
+        
+      </item>
+    
+      <item>
+        <title>From Sublime Text to Vim</title>
+        <description>&lt;p&gt;&lt;em&gt;This post is beginning of my ‘best workflow exploration’. During this journey I’ll write shell script for quick bootstrap of this perfect workspace on fresh Ubuntu machine.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Vim is all about &lt;code&gt;~/.vimrc&lt;/code&gt; file. There is no superhandy “Package control”, but
+there are &lt;a href=&quot;http://vimawesome.com/&quot;&gt;vimawesome.com&lt;/a&gt; with over 11K (!) plugins available, and
+tools like &lt;a href=&quot;https://github.com/Shougo/neobundle.vim&quot;&gt;NeoBundle&lt;/a&gt; for managing your plugins.
+While swithcing to Vim I also found &lt;a href=&quot;http://tmux.sourceforge.net/&quot;&gt;Tmux&lt;/a&gt;.
+Using Vim and Tmux together lets you burn your mouse and/or drill out touchpad with pleasure.&lt;/p&gt;
+
+&lt;p&gt;The simplest way to quickly make your Vim ready to code is to install
+one of ready to use plugin packs (which are finally just .vimrc). I used &lt;a href=&quot;https://github.com/astrails/dotvim&quot;&gt;dotvim&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;useful-links--tips&quot;&gt;Useful links &amp;amp; tips&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Tmux&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;look into &lt;strong&gt;tmux.conf&lt;/strong&gt; for remappings&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://gist.github.com/MohamedAlaa/2961058&quot;&gt;complete cheat sheet&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vim&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://raw.githubusercontent.com/LevelbossMike/vim_shortcut_wallpaper/master/vim-shortcuts_1280x800.png&quot;&gt;Vim movement cheat sheet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;press &lt;code&gt;?&lt;/code&gt; inside nerdtree, helpful&lt;/li&gt;
+      &lt;li&gt;select visually and press &lt;code&gt;Ctrl-n&lt;/code&gt; / &lt;code&gt;Ctrl-p&lt;/code&gt; for multiple cursors&lt;/li&gt;
+      &lt;li&gt;surround: &lt;code&gt;cs&quot;'&lt;/code&gt;-change; &lt;code&gt;ds&quot;&lt;/code&gt;-delete; &lt;code&gt;ysiw&quot;&lt;/code&gt;-wrap. &lt;a href=&quot;https://github.com/tpope/vim-surround#surroundvim&quot;&gt;See all&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;search in files: &lt;code&gt;:Ag [options] {pattern} [{directory}]&lt;/code&gt;; &lt;a href=&quot;https://github.com/rking/ag.vim#keyboard-shortcuts&quot;&gt;shortcuts
+for search results&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;look for all available features of &lt;a href=&quot;https://github.com/astrails/dotvim&quot;&gt;dotvim&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lets-bash&quot;&gt;Let’s bash&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/JosephBuchma/fc857d7c14c0ea2c475a.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;my-current-vimrcafter-and-vimrcbefore&quot;&gt;My current .vimrc.after and .vimrc.before&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/JosephBuchma/650d0dd87b553ca2c8a0.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;my-tmuxconf&quot;&gt;My tmux.conf&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/JosephBuchma/72709f7b22655f7ce339.js&quot;&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 03 May 2015 00:00:00 +0300</pubDate>
+        <link>http://josephbuchma.github.io/2015/05/03/from-sublime-text-to-vim/</link>
+        <guid isPermaLink="true">http://josephbuchma.github.io/2015/05/03/from-sublime-text-to-vim/</guid>
+        
+        <category>vim</category>
+        
+        <category>tmux</category>
+        
+        <category>editors</category>
+        
+        <category>devtools</category>
+        
+        
+        <category>devtools</category>
+        
+      </item>
+    
   </channel>
 </rss>

@@ -1,9 +1,0 @@
-name: Joseph Buchma
-url: http://josephbuchma.github.io
-description: Dev blog
-
-permalink: /:year/:month/:day/:title/
-paginate: 10
-highlighter: pygments
-
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
