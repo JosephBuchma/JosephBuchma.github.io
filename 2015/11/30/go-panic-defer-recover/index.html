@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Go</title>
+  <title>Keep calm in Go - panic, defer and recover</title>
   <meta name="viewport" content="width=device-width">
 
   <!--[if lt IE 9]>
@@ -47,7 +47,7 @@
       <article class="post">
 
 	
-		<h1><a href="/2015/07/19/golang/">Go</a></h1>
+		<h1><a href="/2015/11/30/go-panic-defer-recover/">Keep calm in Go - panic, defer and recover</a></h1>
 	
   
   <ul class="tags">
@@ -59,32 +59,42 @@
     </ul>
   
 
-	<div class="post-content"><h2 id="links">Links</h2>
+	<div class="post-content"><p>Normally you work with “exceptions” in golang by simply returning <code>error</code> from function
+and then checking it in <code>if</code> statement when calling it. But sometimes
+traditional <em>“try … catch … finally”</em> may be more convenient. It can be
+achieved using golang’s <code>panic</code>, <code>defer</code> and <code>recover</code>.</p>
 
-<p><strong>Libs &amp; Frameworks:</strong></p>
+<p>Here is example of <code>try ... catch ... finally</code> in Go:</p>
 
-<ul>
-  <li><a href="https://github.com/gin-gonic/gin">Gin</a> - performant lightweight web framework</li>
-  <li>net/context</li>
-</ul>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
-<p><strong>Go dev tools</strong></p>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">(){</span>
+  <span class="c1">// finally</span>
+  <span class="k">defer</span> <span class="kd">func</span><span class="p">(){</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;FINALIZATION&quot;</span><span class="p">)</span>
+  <span class="p">}()</span>
 
-<ul>
-  <li><a href="https://github.com/moovweb/gvm">GVM</a> - Go version management</li>
-</ul>
+  <span class="c1">// catch</span>
+  <span class="k">defer</span> <span class="kd">func</span><span class="p">(){</span>
+    <span class="k">if</span> <span class="nx">exception</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">exception</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;`Exception` catched: %v\n&quot;</span><span class="p">,</span> <span class="nx">exception</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}()</span>
 
-<p><strong>Articles</strong></p>
+  <span class="c1">// try</span>
+  <span class="nx">x</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="mi">35</span><span class="p">])</span> <span class="c1">// this line will panic (e.g. throw exception):</span>
+                     <span class="c1">// &quot;index out of range&quot;</span>
+<span class="p">}</span></code></pre></div>
 
-<ul>
-  <li><a href="http://peter.bourgon.org/go-in-production">Go in production: best practices</a></li>
-  <li><a href="http://12factor.net">The Twelve Factor App</a></li>
-  <li><a href="https://talks.golang.org/2013/bestpractices.slide#1">Best practices (slides)</a></li>
-</ul>
+<p>You can panic with your custom exceptions of any type. Then you just check type
+of recovered panic using typeswitch or reflect package…</p>
 
+<p>As proof of concept (and for fun) I created <a href="https://github.com/JosephBuchma/calmly">Calmly
+package</a></p>
 </div>
 
-	<p class="meta">Posted on <span class="postdate">Jul 19, 2015</span></p>
+	<p class="meta">Posted on <span class="postdate">Nov 30, 2015</span></p>
 
 </article>
     </div>

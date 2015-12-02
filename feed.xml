@@ -5,9 +5,70 @@
     <description>Dev blog</description>
     <link>http://josephbuchma.github.io/</link>
     <atom:link href="http://josephbuchma.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Nov 2015 11:05:59 +0200</pubDate>
-    <lastBuildDate>Thu, 05 Nov 2015 11:05:59 +0200</lastBuildDate>
+    <pubDate>Thu, 03 Dec 2015 00:00:12 +0200</pubDate>
+    <lastBuildDate>Thu, 03 Dec 2015 00:00:12 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Keep calm in Go - panic, defer and recover</title>
+        <description>&lt;p&gt;Normally you work with “exceptions” in golang by simply returning &lt;code&gt;error&lt;/code&gt; from function
+and then checking it in &lt;code&gt;if&lt;/code&gt; statement when calling it. But sometimes
+traditional &lt;em&gt;“try … catch … finally”&lt;/em&gt; may be more convenient. It can be
+achieved using golang’s &lt;code&gt;panic&lt;/code&gt;, &lt;code&gt;defer&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is example of &lt;code&gt;try ... catch ... finally&lt;/code&gt; in Go:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// finally&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;FINALIZATION&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}()&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// catch&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;recover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;`Exception` catched: %v\n&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}()&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// try&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this line will panic (e.g. throw exception):&lt;/span&gt;
+                     &lt;span class=&quot;c1&quot;&gt;// &amp;quot;index out of range&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can panic with your custom exceptions of any type. Then you just check type
+of recovered panic using typeswitch or reflect package…&lt;/p&gt;
+
+&lt;p&gt;As proof of concept (and for fun) I created &lt;a href=&quot;https://github.com/JosephBuchma/calmly&quot;&gt;Calmly
+package&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 30 Nov 2015 00:00:00 +0200</pubDate>
+        <link>http://josephbuchma.github.io/2015/11/30/go-panic-defer-recover/</link>
+        <guid isPermaLink="true">http://josephbuchma.github.io/2015/11/30/go-panic-defer-recover/</guid>
+        
+        <category>golang</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Go testing</title>
+        <description>&lt;p&gt;testing&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 06 Nov 2015 00:00:00 +0200</pubDate>
+        <link>http://josephbuchma.github.io/2015/11/06/go-testing/</link>
+        <guid isPermaLink="true">http://josephbuchma.github.io/2015/11/06/go-testing/</guid>
+        
+        <category>golang</category>
+        
+        <category>testing</category>
+        
+        
+      </item>
     
       <item>
         <title>Jekyll with plugins and Github Pages</title>
@@ -62,6 +123,7 @@ ready.&lt;/li&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://peter.bourgon.org/go-in-production&quot;&gt;Go in production: best practices&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://12factor.net&quot;&gt;The Twelve Factor App&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://talks.golang.org/2013/bestpractices.slide#1&quot;&gt;Best practices (slides)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
