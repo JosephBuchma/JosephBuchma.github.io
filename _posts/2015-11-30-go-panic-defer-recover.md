@@ -1,6 +1,6 @@
 ---
 layout: post
-  title: "Keep calm in Go - panic, defer and recover"
+title: "Keep calm in Go - panic, defer and recover"
 description: ""
 category:
 tags:
@@ -42,3 +42,6 @@ func main(){
 
 You can panic with your custom exceptions of any type. Then you just check type
 of recovered panic using typeswitch or reflect package...
+
+As proof of concept (and for fun) I created [Calmly
+package](https://github.com/JosephBuchma/calmly)
